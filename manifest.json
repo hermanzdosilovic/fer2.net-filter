@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "FER2.net Filter",
-    "description": "Prikaž samo one diskusije koje pripadaju forumima koji me zanimaju.",
-    "version": "0.1.1",
+    "description": "Prikaži samo one diskusije koje pripadaju forumima koji me zanimaju.",
+    "version": "0.1.2",
     "browser_action": {
         "default_popup": "index.html"
     },
@@ -11,7 +11,7 @@
     ],
     "content_scripts": [
         {
-            "matches": ["https://www.fer2.net/index.php?pages/Predmetni/"],
+            "matches": ["https://www.fer2.net/index.php?pages/Predmetni/", "https://www.fer2.net/index.php"],
             "js": ["js/hide.js"],
             "run_at": "document_end"
         }
