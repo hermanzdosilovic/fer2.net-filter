@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "FER2.net Filter",
+    "description": "Prikaž samo one diskusije koje pripadaju forumima koji me zanimaju.",
+    "version": "0.1.0",
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "storage", "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://www.fer2.net/index.php?pages/Predmetni/"],
+            "js": ["js/hide.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
