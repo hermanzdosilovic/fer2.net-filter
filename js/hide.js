@@ -1,11 +1,20 @@
 chrome.storage.sync.get("whitelistedForumIds", function (result) {
     var whitelistedForumIds = result["whitelistedForumIds"];
     if (whitelistedForumIds !== undefined && whitelistedForumIds.trim() !== "") {
-        removeDiscussions(whitelistedForumIds.trim().split(/ +/));
+        hideDiscussions(whitelistedForumIds.trim().split(/ +/));
+    } else {
+        showDiscussions();
     }
 });
 
-function removeDiscussions(whitelistedForumIds) {
+function showDiscussions() {
+    var discussionItems = document.getElementsByClassName("discussionListItems")[0].children;
+    for (let discussionItem of discussionItems) {
+        discussionItem.style.display = "table";
+    }
+}
+
+function hideDiscussions(whitelistedForumIds) {
     var whitelistedForumHrefs = [];
     for (let id of whitelistedForumIds) {
         whitelistedForumHrefs.push(`https://www.fer2.net/index.php?forums/${id}/`);
